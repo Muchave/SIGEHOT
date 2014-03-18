@@ -1,0 +1,105 @@
+<?page title="Registar Quartos" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none"
+		apply="controller.QuartosController" width="100%" height="98%">
+		<borderlayout width="100%" height="100%">
+			<north border="none" size="22%">
+				<grid width="99.8%" height="97%">
+					<rows>
+						<row>
+							<cell>
+								<label value="Número do Quarto:" />
+							</cell>
+							<cell>
+								<textbox id="idNumQuarto" width="98%" />
+							</cell>
+							<cell>
+								<label value="Preço do Quarto:" />
+							</cell>
+							<cell>
+								<textbox id="idPreco" width="98%" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="Tipo de Quarto:" />
+							</cell>
+							<cell>
+								<textbox id="idTipoQuarto" width="98%" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="Discrição do Quarto:" />
+							</cell>
+							<cell>
+								<textbox id="idDiscricaoQuarto"
+									width="98%" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+			</north>
+			<center border="none">
+				<grid width="99.8%" height="94%">
+					<rows>
+						<row>
+							<cell>
+								<button label="Salvar"
+									forward="onSalvar" />
+							</cell>
+							<cell>
+								<button label="Actualizar"
+									forward="onActualizar" />
+							</cell>
+							<cell>
+								<button label="Novo" forward="onNovo" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+			</center>
+			<south border="none" size="68%">
+				<borderlayout width="100%" height="100%">
+					<north size="13%" border="none">
+						<grid width="99.8%" height="95%">
+							<rows>
+								<row>
+									<cell><label value="Digite no do Quarto/Tipo do Quarto:"/></cell>
+									<cell><textbox id="idProcurar" width="99%"/></cell>
+									<cell><button label="Procurar" forward="onProcurar"/></cell>
+								</row>
+							</rows>
+						</grid>
+					</north>
+					<center border="none"></center>
+					<south border="none" size="87%">
+										<listbox width="99.8%" 
+					forward="onSelect" mold="paging" pageSize="7" height="99%"
+					id="listaQuarto"
+					emptyMessage="Não Existe o Quarto que Esta a Procura!">
+					<listhead>
+						<listheader label="Número do Quarto" />
+						<listheader label="Tipo do Quarto" />
+						<listheader label="Discrição do Quarto" />
+						<listheader label="Preço do Quarto" />
+					</listhead>
+					<template name="model">
+						<listitem>
+							<listcell label="${each.numeroQuarto}"></listcell>
+							<listcell label="${each.tipoQuarto}"></listcell>
+							<listcell>
+								<label value="${each.discricaoQuarto}" />
+							</listcell>
+							<listcell>
+								<label value="${each.precoQuarto}" />
+							</listcell>
+						</listitem>
+					</template>
+				</listbox>
+					</south>
+				</borderlayout>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

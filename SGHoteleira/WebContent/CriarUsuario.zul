@@ -1,0 +1,58 @@
+<?page title="Registar Usuario" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" mode="embedded"
+		style="margin:120px 120px 120px 200px" width="60%" height="55%"
+		apply="controller.CriarUsuarioController">
+		<borderlayout width="100%" height="100%">
+			<center border="none">
+				<grid width="99%" height="99%">
+					<columns>
+						<column label="Informações da Conta" />
+					</columns>
+					<rows>
+						<row>
+							<cell colspan="2">
+								<label value="Nome do Usuario:" />
+							</cell>
+							<cell>
+								<textbox id="idNomeUsuario" />
+							</cell>
+						</row>
+						<row>
+							<cell colspan="2">
+								<label value="Email do Usuario:" />
+							</cell>
+							<cell>
+								<textbox id="idEmail" />
+							</cell>
+						</row>
+						<row>
+							<cell colspan="2">
+								<label value="Password do Usuario:" />
+							</cell>
+							<cell>
+								<textbox type="password"
+									id="passwordUsuario" constraint="no empty" />
+							</cell>
+						</row>
+						<row>
+							<cell colspan="2">
+								<label value="Confirmar Password:" />
+							</cell>
+							<cell>
+								<textbox type="password"
+									id="confirmarUsuario" constraint="no empty" />
+							</cell>
+						</row>
+						<row>
+							<cell colspan="3" align="right">
+								<button label="Criar Usuario"
+									forward="onClick" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

@@ -1,0 +1,80 @@
+<?page title="menu" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="menu" border="normal" width="100%" height="100%"
+		apply="controller.MenuController">
+		<zscript><![CDATA[
+	boolean permitidoAdmin = false;
+	boolean permitidoCliente = false;
+	boolean permitidoOcupacao = false;
+	String admin = (String) Executions.getCurrent().getDesktop().getSession()
+			.getAttribute("admin");
+	String ocupacao = (String) Executions.getCurrent().getDesktop()
+			.getSession().getAttribute("ocupacao");
+	String cliente = (String) Executions.getCurrent().getDesktop().getSession()
+			.getAttribute("cliente");
+	if (admin != null) {
+		permitidoAdmin = true;
+	}
+	if (ocupacao != null) {
+		permitidoOcupacao = true;
+	}
+	if (cliente != null) {
+		permitidoCliente = true;
+	}
+	Executions.getCurrent().getDesktop().getSession().removeAttribute("admin");
+	Executions.getCurrent().getDesktop().getSession()
+			.removeAttribute("ocupacao");
+	Executions.getCurrent().getDesktop().getSession()
+			.removeAttribute("cliente");
+]]>
+	</zscript>
+		<borderlayout>
+			<north size="6%" border="none">
+				<menubar autodrop="true" width="100%" height="100%">
+					<menu label="Cliente" if="${permitidoCliente}">
+						<menupopup>
+							<menuitem label="Registar Cliente"
+								forward="onClick">
+							</menuitem>
+						</menupopup>
+					</menu>
+					<menu label="Ocupação" if="${permitidoOcupacao}">
+						<menupopup>
+							<menuitem label="Quarto Ocupados"
+								forward="onQuartoOcupados">
+							</menuitem>
+							<menuitem label="Ocupar Quartos"
+								forward="onOcuparQuartos">
+							</menuitem>
+						</menupopup>
+					</menu>
+					<menu label="Administração"
+						if="${permitidoAdmin}">
+						<menupopup>
+							<menuitem label="Registar Quartos"
+								forward="onRegistarQuartos">
+							</menuitem>
+							<menuitem label="Criar Utilizador"
+								forward="onCriarUtilizador">
+							</menuitem>
+							<menuitem label="Criar Perfil"
+								forward="onCriarPerfil">
+							</menuitem>
+						</menupopup>
+					</menu>
+					<menuitem label="Configurações da Conta"
+						forward="onConfiguracao" />
+					<menuitem label="Serviços" forward="onServico" />
+					<menuitem label="Buscas Rapidas"
+						forward="onBuscasRapidas" />
+					<menuitem label="Sair" forward="onSair" />
+				</menubar>
+			</north>
+			<center border="none">
+				<include id="layout" width="99.9%"
+					style="margin-top:5px" height="89.9%">
+				</include>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

@@ -1,0 +1,131 @@
+<?page title="Administracao" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" 
+		width="100%" apply="controller.PerfilController" height="98%">
+		<borderlayout width="100%" height="100%">
+			<north height="43%" border="none">
+				<grid>
+					<columns>
+						<column label="Criar Perfil" />
+					</columns>
+					<rows>
+						<row>
+							<cell colspan="2">
+								<label value="Nome do Perfil:" />
+							</cell>
+							<cell colspan="3">
+								<textbox id="idNomePerfil" width="99%" />
+							</cell>
+						</row>
+						<row>
+							<cell colspan="2" rowspan="5">
+								<label value="Direitos do Perfil:" />
+							</cell>
+						</row>
+						<row>
+							<cell colspan="2">
+								<checkbox label="Clientes"
+									id="cliente" />
+							</cell>
+							<cell>
+								<checkbox label="Administração"
+									id="administracao" />
+							</cell>
+						</row>
+						<row>
+							<cell colspan="3">
+								<checkbox label="Ocupação Quartos"
+									id="ocupacao" />
+							</cell>
+						</row>
+						<row>
+							<cell colspan="5" align="right">
+								<button label="Criar Perfil"
+									forward="onCriar" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+			</north>
+			<center border="none">
+				<borderlayout width="100%" height="100%">
+					<west size="50%" border="none">
+						<borderlayout width="100%" height="100%">
+							<north height="10%" border="none">
+								<borderlayout width="100%"
+									height="100%">
+									<west size="75%" border="none">
+										<textbox id="idProcurarUsuario"
+											width="98%" />
+									</west>
+									<east size="25%" border="none">
+										<button label="Procurar"
+											image="/Imagem/search.png" forward="onProcurarUsuario" />
+									</east>
+									<center border="none"></center>
+								</borderlayout>
+							</north>
+							<center border="none">
+								<listbox id="listaUtilizador" forward="onSelectUtilizador"
+									mold="paging" pageSize="5" width="99%" height="99%"
+									emptyMessage="Não Existe o Utilizador que esta a Procura!">
+									<listhead>
+										<listheader label="Usuario" />
+									</listhead>
+									<template name="model">
+										<listitem>
+											<listcell
+												label="${each.username}" />
+										</listitem>
+									</template>
+								</listbox>
+							</center>
+						</borderlayout>
+					</west>
+					<east size="50%" border="none">
+						<borderlayout width="100%" height="100%">
+							<north height="10%" border="none">
+								<borderlayout width="100%"
+									height="100%">
+									<west size="75%" border="none">
+										<textbox id="idProcurarPerfil"
+											width="98%" />
+									</west>
+									<east size="25%" border="none">
+										<button label="Procurar"
+											image="/Imagem/search.png" forward="onProcurarPerfil" />
+									</east>
+									<center border="none"></center>
+								</borderlayout>
+							</north>
+							<center border="none">
+								<listbox id="listaPerfil" mold="paging" forward="onSelectPerfil"
+									pageSize="5" width="99%" height="99%"
+									emptyMessage="Não Existe o Perfil que esta a Procura!">
+									<listhead>
+										<listheader label="Nome do Perfil" />
+									</listhead>
+									<template name="model">
+										<listitem>
+											<listcell
+												label="${each.nomePerfil}" />
+										</listitem>
+									</template>
+								</listbox>
+							</center>
+						</borderlayout>
+					</east>
+				</borderlayout>
+			</center>
+			<south size="5%" border="none">	
+				<borderlayout width="100%" height="100%">
+					<west size="50%" border="none"></west>
+					<center border="none"></center>
+					<east size="15%" border="none">
+						<button label="Alocar" image="/Imagem/accept.png" forward="onAlocar"/>
+					</east>
+				</borderlayout>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

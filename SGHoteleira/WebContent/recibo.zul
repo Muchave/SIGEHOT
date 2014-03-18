@@ -1,0 +1,8 @@
+<?page title="recibo" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" width="100%" height="100%" apply="controller.reciboController">
+		<iframe id="layoutt" width="99.9%" style="margin-top:5px"
+			height="99.9%">
+		</iframe>
+	</window>
+</zk>

@@ -1,0 +1,164 @@
+<?page title="Registo de Clientes" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" width="100%" height="98%"
+		apply="controller.ClienteController">
+		<borderlayout width="100%" height="100%">
+			<north size="35%" border="none">
+				<grid width="99.5%" height="98%">
+					<rows>
+						<row>
+							<cell>
+								<label value="Apelido :" />
+							</cell>
+							<cell>
+								<textbox width="98%" id="idApelido" />
+							</cell>
+							<cell>
+								<label value="Documento :" />
+							</cell>
+							<cell>
+								<combobox width="98%"
+									id="idDocumento">
+									<comboitem
+										label="Bilhete Identidade" />
+									<comboitem label="Passaporte" />
+									<comboitem label="DIR" />
+									<comboitem label="Carta Conducao" />
+									<comboitem label="Outros" />
+								</combobox>
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="Nome :" />
+							</cell>
+							<cell>
+								<textbox width="98%" id="idNome" />
+							</cell>
+							<cell>
+								<label value="Nr Documento:" />
+							</cell>
+							<cell>
+								<textbox width="98%" id="idNumeroDoc" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="Nacionalidade :" />
+							</cell>
+							<cell>
+								<textbox width="98%"
+									id="idNacionalidade" />
+							</cell>
+							<cell>
+								<label value="Email :" />
+							</cell>
+							<cell>
+								<textbox width="98%" id="idEmail" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="Endereco :" />
+							</cell>
+							<cell>
+								<textbox width="98%" id="idEndereco" />
+							</cell>
+							<cell>
+								<label value="Telefone :" />
+							</cell>
+							<cell>
+								<textbox width="98%" id="idTelefone" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="Data Nasc :" />
+							</cell>
+							<cell>
+								<datebox width="98%" id="idDataNasc" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+			</north>
+			<center border="none">
+				<hbox style="margin-top:10px" height="5%">
+					<space width="180px"></space>
+					<button label="Salvar" width="65px" height="35px"
+						forward="onSalvar" />
+					<button label="Actualizar" width="65px"
+						height="35px" forward="onActualizar" />
+					<button label="Novo" width="65px" height="35px"
+						forward="onNovo" />
+				</hbox>
+			</center>
+			<south size="55%" border="none">
+				<borderlayout width="100%" height="100%">
+					<north size="17%" border="none">
+						<grid width="99.5%" height="94%">
+							<rows>
+								<row>
+									<cell>
+										<label
+											value="Apelido ou Nome :" />
+									</cell>
+									<cell>
+										<textbox width="98%"
+											id="idProcurar" />
+									</cell>
+									<cell>
+										<button label="procurar"
+											forward="onProcurar" />
+									</cell>
+								</row>
+							</rows>
+						</grid>
+					</north>
+					<south size="83%" border="none">
+						<listbox width="99.5%" 
+							forward="onSelect" mold="paging" pageSize="3" height="99%"
+							id="listaCliente"
+							emptyMessage="Não Existe o Cliente que Esta a Procura!">
+							<listhead>
+								<listheader label="Apelido" />
+								<listheader label="Nome" />
+								<listheader label="Email" />
+								<listheader label="Telefone" />
+								<listheader label="Tipo Doc" />
+								<listheader label="Data Nasc" />
+								<listheader label="Endereco" />
+								<listheader label="Nacionalidade" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell label="${each.apelido}"></listcell>
+									<listcell label="${each.nome}"></listcell>
+									<listcell>
+										<label value="${each.email}" />
+									</listcell>
+									<listcell>
+										<label value="${each.telefone}" />
+									</listcell>
+									<listcell
+										label="${each.tipoDocumento}">
+									</listcell>
+									<listcell
+										label="${each.dataNascimento}">
+									</listcell>
+									<listcell>
+										<label value="${each.morada}" />
+									</listcell>
+									<listcell>
+										<label
+											value="${each.nacionalidade}" />
+									</listcell>
+								</listitem>
+							</template>
+						</listbox>
+					</south>
+				</borderlayout>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

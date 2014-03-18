@@ -1,0 +1,9 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="new page title" border="normal">
+<hbox>
+<label value="Nome do Perfil :"/> 
+<textbox width="99%"/>
+</hbox>
+</window>
+</zk>

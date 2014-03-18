@@ -1,0 +1,50 @@
+<?page title="Configuracoes da Conta" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" width="100%"
+		height="99%" apply="controller.AlterarSenhaController">
+				<zscript><![CDATA[                 
+final Label user;
+String admin = (String) Executions.getCurrent().getDesktop().getSession()
+.getAttribute("user");
+]]>
+	</zscript>
+		<borderlayout>
+			<center border="none">
+				<grid width="99.7%" height="99.7%">
+					<rows>
+						<row>
+							<cell>
+								<label value="Nome do Usuario:" />
+							</cell>
+							<cell>
+								<label value="${admin}" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="Novo Password:" />
+							</cell>
+							<cell>
+								<textbox width="98%" id="idPassword" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="Confirmar Password:" />
+							</cell>
+							<cell>
+								<textbox width="98%" id="idConfirmar" />
+							</cell>
+						</row>
+						<row>
+							<cell colspan="2">
+							<button label="Alterar Password"
+								forward="onAlterar" />
+								</cell>
+						</row>
+					</rows>
+				</grid>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

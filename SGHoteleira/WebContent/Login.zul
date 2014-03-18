@@ -1,0 +1,52 @@
+<?page title="Login" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" width="50%" mode="embedded"
+		position="center,top" style="margin:10% 25% 25% 25%"
+		apply="controller.LoginController" height="70%">
+
+		<borderlayout width="100%" height="100%">
+			<center border="none">
+				<window width="100%" height="95%" border="normal"
+					mode="embedded" position="center">
+					<image src="/Imagem/user.png" width="100%"
+						height="100%" />
+				</window>
+			</center>
+			<east size="32.5%" border="none"></east>
+			<west size="32.5%" border="none"></west>
+			<south height="45%" border="none">
+				<borderlayout width="100%" height="100%">
+					<center border="none">
+						<grid width="99%" height="70%">
+							<rows>
+								<row>
+									<cell>
+										<label value="Nome do Usuario:" />
+									</cell>
+									<cell>
+										<textbox id="idusuario" />
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<label value="Password:" />
+									</cell>
+									<cell>
+										<textbox type="password"
+											id="password" constraint="no empty" />
+									</cell>
+								</row>
+								<row>
+									<cell colspan="3" align="right">
+										<button label="Login"
+											image="/Imagem/next.png" forward="onClickar" />
+									</cell>
+								</row>
+							</rows>
+						</grid>
+					</center>
+				</borderlayout>
+			</south>
+		</borderlayout>
+	</window>
+</zk>
